@@ -8,8 +8,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import (confusion_matrix, classification_report, 
-                             accuracy_score, precision_score, recall_score, 
-                             f1_score, roc_curve, auc, roc_auc_score)
+                             accuracy_score, precision_score)
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -39,7 +38,7 @@ df['target_name'] = df['target'].map({0: iris.target_names[0],
                                        1: iris.target_names[1], 
                                        2: iris.target_names[2]})
 
-print(f"\nDataset Iris cargado exitosamente")
+print("\nDataset Iris cargado exitosamente")
 print(f"Número de muestras: {X.shape[0]}")
 print(f"Número de características: {X.shape[1]}")
 print(f"Número de clases: {len(iris.target_names)}")
@@ -52,10 +51,10 @@ print(f"Características: {iris.feature_names}")
 print("\n2. EXPLORACIÓN INICIAL")
 print("-" * 80)
 
-print(f"\nPrimeras 10 filas del dataset:")
+print("\nPrimeras 10 filas del dataset:")
 print(df.head(10))
 
-print(f"\nÚltimas 5 filas del dataset:")
+print("\nÚltimas 5 filas del dataset:")
 print(df.tail(5))
 
 print(f"\nForma del dataset: {df.shape}")
@@ -67,18 +66,18 @@ print(f"Tipos de datos:\n{df.dtypes}")
 print("\n3. ESTADÍSTICAS DESCRIPTIVAS")
 print("-" * 80)
 
-print(f"\nEstadísticas generales:")
+print("\nEstadísticas generales:")
 print(df.describe())
 
-print(f"\nDistribución de clases:")
+print("\nDistribución de clases:")
 print(df['target_name'].value_counts())
-print(f"\nProporción de clases:")
+print("\nProporción de clases:")
 print(df['target_name'].value_counts(normalize=True))
 
-print(f"\nVerificación de valores faltantes:")
+print("\nVerificación de valores faltantes:")
 print(df.isnull().sum())
 
-print(f"\nEstadísticas por clase:")
+print("\nEstadísticas por clase:")
 for clase in iris.target_names:
     print(f"\n{clase}:")
     print(df[df['target_name'] == clase].describe().round(3))
@@ -151,7 +150,7 @@ print("-" * 80)
 
 # Calcular correlación
 correlation_matrix = df[iris.feature_names].corr()
-print(f"\nMatriz de correlación:")
+print("\nMatriz de correlación:")
 print(correlation_matrix.round(3))
 
 # Visualizar matriz de correlación
@@ -175,12 +174,12 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2,
 print(f"\nTamaño del conjunto de entrenamiento: {X_train.shape[0]}")
 print(f"Tamaño del conjunto de prueba: {X_test.shape[0]}")
 
-print(f"\nDistribución de clases en entrenamiento:")
+print("\nDistribución de clases en entrenamiento:")
 for clase_idx, clase in enumerate(iris.target_names):
     count = np.sum(y_train == clase_idx)
     print(f"  {clase}: {count}")
 
-print(f"\nDistribución de clases en prueba:")
+print("\nDistribución de clases en prueba:")
 for clase_idx, clase in enumerate(iris.target_names):
     count = np.sum(y_test == clase_idx)
     print(f"  {clase}: {count}")
@@ -190,9 +189,9 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-print(f"\nDatos escalados - Media (debería ser ~0):")
+print("\nDatos escalados - Media (debería ser ~0):")
 print(X_train_scaled.mean(axis=0).round(4))
-print(f"\nDatos escalados - Desv. Est. (debería ser ~1):")
+print("\nDatos escalados - Desv. Est. (debería ser ~1):")
 print(X_train_scaled.std(axis=0).round(4))
 
 # ============================================================
@@ -208,8 +207,8 @@ modelo_lr.fit(X_train_scaled, y_train)
 y_pred_lr = modelo_lr.predict(X_test_scaled)
 y_pred_proba_lr = modelo_lr.predict_proba(X_test_scaled)
 
-print(f"\nModelo de Regresión Logística entrenado")
-print(f"Coeficientes del modelo:")
+print("\nModelo de Regresión Logística entrenado")
+print("Coeficientes del modelo:")
 for clase_idx, clase in enumerate(iris.target_names):
     print(f"\n  Clase '{clase}':")
     for feat_idx, feature in enumerate(iris.feature_names):
@@ -228,8 +227,8 @@ modelo_rf.fit(X_train_scaled, y_train)
 y_pred_rf = modelo_rf.predict(X_test_scaled)
 y_pred_proba_rf = modelo_rf.predict_proba(X_test_scaled)
 
-print(f"\nModelo Random Forest entrenado")
-print(f"Importancia de características:")
+print("\nModelo Random Forest entrenado")
+print("Importancia de características:")
 for feat_idx, feature in enumerate(iris.feature_names):
     print(f"  {feature}: {modelo_rf.feature_importances_[feat_idx]:.4f}")
 
@@ -243,10 +242,10 @@ acc_lr = accuracy_score(y_test, y_pred_lr)
 print(f"\nAccuracy: {acc_lr:.4f} ({acc_lr*100:.2f}%)")
 
 cm_lr = confusion_matrix(y_test, y_pred_lr)
-print(f"\nMatriz de Confusión:")
+print("\nMatriz de Confusión:")
 print(cm_lr)
 
-print(f"\nReporte de Clasificación:")
+print("\nReporte de Clasificación:")
 print(classification_report(y_test, y_pred_lr, target_names=iris.target_names))
 
 # ============================================================
@@ -259,10 +258,10 @@ acc_rf = accuracy_score(y_test, y_pred_rf)
 print(f"\nAccuracy: {acc_rf:.4f} ({acc_rf*100:.2f}%)")
 
 cm_rf = confusion_matrix(y_test, y_pred_rf)
-print(f"\nMatriz de Confusión:")
+print("\nMatriz de Confusión:")
 print(cm_rf)
 
-print(f"\nReporte de Clasificación:")
+print("\nReporte de Clasificación:")
 print(classification_report(y_test, y_pred_rf, target_names=iris.target_names))
 
 # ============================================================
@@ -314,7 +313,7 @@ precision_rf = [precision_score(y_test, y_pred_rf, labels=[0], average=None)[0],
                 precision_score(y_test, y_pred_rf, labels=[1], average=None)[0],
                 precision_score(y_test, y_pred_rf, labels=[2], average=None)[0]]
 
-print(f"\nComparación de Accuracy:")
+print("\nComparación de Accuracy:")
 print(f"  Regresión Logística: {accuracy_scores[0]:.4f}")
 print(f"  Random Forest: {accuracy_scores[1]:.4f}")
 
@@ -363,7 +362,7 @@ ejemplos = np.array([
 # Normalizar ejemplos
 ejemplos_scaled = scaler.transform(ejemplos)
 
-print(f"\nPredicciones para nuevos ejemplos:")
+print("\nPredicciones para nuevos ejemplos:")
 print(f"{'Largo Sépalo':<15} {'Ancho Sépalo':<15} {'Largo Pétalo':<15} {'Ancho Pétalo':<15}")
 print(f"{'-'*60}")
 for i, ejemplo in enumerate(ejemplos):

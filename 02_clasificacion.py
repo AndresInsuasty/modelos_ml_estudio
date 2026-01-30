@@ -7,7 +7,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (confusion_matrix, classification_report, 
                              accuracy_score, precision_score, recall_score, 
-                             f1_score, roc_curve, auc, roc_auc_score)
+                             f1_score, roc_curve, roc_auc_score)
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -26,7 +26,7 @@ print("\n1. LECTURA DE DATOS")
 print("-" * 70)
 
 df = pd.read_excel('data/03_clasificacion.xlsx')
-print(f"Primeras filas del dataset:")
+print("Primeras filas del dataset:")
 print(df.head(10))
 print(f"\nForma del dataset: {df.shape}")
 print(f"Tipos de datos:\n{df.dtypes}")
@@ -37,15 +37,15 @@ print(f"Tipos de datos:\n{df.dtypes}")
 print("\n2. ANÁLISIS EXPLORATORIO")
 print("-" * 70)
 
-print(f"\nEstadísticas descriptivas:")
+print("\nEstadísticas descriptivas:")
 print(df.describe())
 
-print(f"\nDistribución de clases (variable objetivo 'z'):")
+print("\nDistribución de clases (variable objetivo 'z'):")
 print(df['z'].value_counts())
-print(f"\nProporción de clases:")
+print("\nProporción de clases:")
 print(df['z'].value_counts(normalize=True))
 
-print(f"\nVerificación de valores faltantes:")
+print("\nVerificación de valores faltantes:")
 print(df.isnull().sum())
 
 # ============================================================
@@ -96,9 +96,9 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2,
 
 print(f"\nTamaño del conjunto de entrenamiento: {X_train.shape[0]}")
 print(f"Tamaño del conjunto de prueba: {X_test.shape[0]}")
-print(f"\nDistribución en entrenamiento:")
+print("\nDistribución en entrenamiento:")
 print(y_train.value_counts())
-print(f"\nDistribución en prueba:")
+print("\nDistribución en prueba:")
 print(y_test.value_counts())
 
 # Normalización de datos (estandarización)
@@ -106,7 +106,7 @@ scaler = StandardScaler()
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-print(f"\nDatos escalados (muestra de entrenamiento):")
+print("\nDatos escalados (muestra de entrenamiento):")
 print(f"Media: {X_train_scaled.mean(axis=0)}")
 print(f"Desv. Est.: {X_train_scaled.std(axis=0)}")
 
@@ -120,7 +120,7 @@ print("-" * 70)
 modelo = LogisticRegression(random_state=42, max_iter=1000)
 modelo.fit(X_train_scaled, y_train)
 
-print(f"Coeficientes del modelo:")
+print("Coeficientes del modelo:")
 print(f"  - Coeficiente para x: {modelo.coef_[0][0]:.4f}")
 print(f"  - Coeficiente para y: {modelo.coef_[0][1]:.4f}")
 print(f"  - Intercepto (sesgo): {modelo.intercept_[0]:.4f}")
@@ -135,7 +135,7 @@ print("-" * 70)
 y_pred = modelo.predict(X_test_scaled)
 y_pred_proba = modelo.predict_proba(X_test_scaled)
 
-print(f"\nPrimeras 10 predicciones:")
+print("\nPrimeras 10 predicciones:")
 print(f"{'Índice':<8} {'Real':<8} {'Predicho':<12} {'Prob(0)':<12} {'Prob(1)':<12}")
 print("-" * 52)
 for i in range(min(10, len(y_test))):
@@ -148,12 +148,12 @@ print("\n7. MATRIZ DE CONFUSIÓN")
 print("-" * 70)
 
 cm = confusion_matrix(y_test, y_pred)
-print(f"\nMatriz de Confusión:")
+print("\nMatriz de Confusión:")
 print(cm)
 
 # Interpretación
 tn, fp, fn, tp = cm.ravel()
-print(f"\nInterpretación:")
+print("\nInterpretación:")
 print(f"  - Verdaderos Negativos (TN): {tn}")
 print(f"  - Falsos Positivos (FP): {fp}")
 print(f"  - Falsos Negativos (FN): {fn}")
@@ -188,7 +188,7 @@ print(f"Recall (Sensibilidad): {recall:.4f}")
 print(f"F1-Score: {f1:.4f}")
 print(f"ROC-AUC: {roc_auc:.4f}")
 
-print(f"\nReporte de Clasificación:")
+print("\nReporte de Clasificación:")
 print(classification_report(y_test, y_pred, target_names=['Clase 0', 'Clase 1']))
 
 # ============================================================
@@ -282,7 +282,7 @@ plt.show()
 print("\n" + "="*70)
 print("RESUMEN FINAL")
 print("="*70)
-print(f"\nEl modelo de Regresión Logística alcanzó:")
+print("\nEl modelo de Regresión Logística alcanzó:")
 print(f"  ✓ Accuracy: {accuracy:.2%}")
 print(f"  ✓ Precision: {precision:.2%}")
 print(f"  ✓ Recall: {recall:.2%}")
