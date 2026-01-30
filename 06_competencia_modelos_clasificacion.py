@@ -145,6 +145,7 @@ axes[1, 1].legend()
 axes[1, 1].grid(True, alpha=0.3)
 
 plt.tight_layout()
+plt.savefig('imgs/06_clasificacion_comp_1_exploracion_datos.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -310,6 +311,7 @@ axes[1, 1].legend(loc='upper right', bbox_to_anchor=(1.3, 1.0), fontsize=8)
 axes[1, 1].grid(True)
 
 plt.tight_layout()
+plt.savefig('imgs/06_clasificacion_comp_2_comparacion_metricas.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -380,6 +382,7 @@ axes[1].legend(loc="lower right")
 axes[1].grid(True, alpha=0.3)
 
 plt.tight_layout()
+plt.savefig('imgs/06_clasificacion_comp_3_mejor_modelo_confusion_roc.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 print(f"\n✓ Matriz de confusión generada")
@@ -411,6 +414,7 @@ plt.title('Curvas ROC - Comparación de Todos los Modelos', fontsize=13, fontwei
 plt.legend(loc="lower right", fontsize=9)
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
+plt.savefig('imgs/06_clasificacion_comp_4_curvas_roc_todos.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -439,6 +443,7 @@ if hasattr(best_model, 'feature_importances_'):
              fontsize=13, fontweight='bold')
     plt.grid(axis='x', alpha=0.3)
     plt.tight_layout()
+    plt.savefig('imgs/06_clasificacion_comp_5_feature_importance.jpg', format='jpg', bbox_inches='tight', dpi=100)
     plt.show()
     
 elif hasattr(best_model, 'coef_'):
@@ -460,6 +465,7 @@ elif hasattr(best_model, 'coef_'):
              fontsize=13, fontweight='bold')
     plt.grid(axis='x', alpha=0.3)
     plt.tight_layout()
+    plt.savefig('imgs/06_clasificacion_comp_5_feature_importance.jpg', format='jpg', bbox_inches='tight', dpi=100)
     plt.show()
 else:
     print(f"\n⚠️ {best_model_name} no proporciona importancia de características directamente")

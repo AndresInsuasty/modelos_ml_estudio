@@ -114,6 +114,7 @@ for idx, feature in enumerate(caracteristicas):
     axes[idx].grid(True, alpha=0.3, axis='y')
 
 plt.tight_layout()
+plt.savefig('imgs/04_clusterizacion_1_histogramas_features.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -152,6 +153,7 @@ axes[1].legend()
 axes[1].grid(True, alpha=0.3)
 
 plt.tight_layout()
+plt.savefig('imgs/04_clusterizacion_2_scatter_caracteristicas.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -171,6 +173,7 @@ sns.heatmap(correlation_matrix, annot=True, fmt='.2f', cmap='coolwarm',
             center=0, square=True, linewidths=1, cbar_kws={"shrink": 0.8}, ax=ax)
 ax.set_title('Matriz de Correlación - Pingüinos de Palmer', fontsize=14, fontweight='bold')
 plt.tight_layout()
+plt.savefig('imgs/04_clusterizacion_3_matriz_correlacion.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -232,6 +235,7 @@ axes[1].set_title('Silhouette Score por K', fontsize=13, fontweight='bold')
 axes[1].grid(True, alpha=0.3)
 
 plt.tight_layout()
+plt.savefig('imgs/04_clusterizacion_4_metodo_codo.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -404,6 +408,7 @@ axes[1, 1].legend()
 axes[1, 1].grid(True, alpha=0.3)
 
 plt.tight_layout()
+plt.savefig('imgs/04_clusterizacion_5_clusters_pca.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -439,6 +444,7 @@ for i, (bar, score) in enumerate(zip(bars, scores)):
             f'{score:.4f}', ha='center', va='bottom', fontweight='bold', fontsize=11)
 
 plt.tight_layout()
+plt.savefig('imgs/04_clusterizacion_6_comparacion_algoritmos.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================

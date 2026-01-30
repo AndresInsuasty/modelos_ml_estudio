@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
-def analizar_datos(archivo, titulo):
+def analizar_datos(archivo, titulo, sufijo_archivo):
     """
     Lee un archivo Excel, muestra los puntos en scatter plot
     y ajusta una regresión lineal.
@@ -11,6 +11,7 @@ def analizar_datos(archivo, titulo):
     Parameters:
     archivo (str): Ruta del archivo Excel
     titulo (str): Título para las gráficas
+    sufijo_archivo (str): Sufijo para los nombres de archivo (ej: 'datos_lineales_sin_ruido')
     """
     # Leer el archivo Excel
     df = pd.read_excel(archivo)
@@ -50,6 +51,7 @@ def analizar_datos(archivo, titulo):
     plt.grid(True, alpha=0.3, linestyle='--')
     plt.legend()
     plt.tight_layout()
+    plt.savefig(f'imgs/01_regresion_{sufijo_archivo}_scatter.jpg', format='jpg', bbox_inches='tight', dpi=100)
     plt.show()
     
     # Crear la gráfica con regresión lineal
@@ -72,15 +74,16 @@ def analizar_datos(archivo, titulo):
     plt.legend(fontsize=11, loc='best')
     plt.grid(True, alpha=0.3, linestyle='--')
     plt.tight_layout()
+    plt.savefig(f'imgs/01_regresion_{sufijo_archivo}_modelo_ajustado.jpg', format='jpg', bbox_inches='tight', dpi=100)
     plt.show()
 
 
 # ============================================================
 # ANÁLISIS DEL PRIMER CONJUNTO DE DATOS (SIN RUIDO)
 # ============================================================
-analizar_datos('data/01_datos_lineales.xlsx', 'Datos Lineales - Sin Ruido')
+analizar_datos('data/01_datos_lineales.xlsx', 'Datos Lineales - Sin Ruido', 'datos_lineales')
 
 # ============================================================
 # ANÁLISIS DEL SEGUNDO CONJUNTO DE DATOS (CON RUIDO)
 # ============================================================
-analizar_datos('data/02_datos_lineales_ruido.xlsx', 'Datos Lineales - Con Ruido')
+analizar_datos('data/02_datos_lineales_ruido.xlsx', 'Datos Lineales - Con Ruido', 'datos_lineales_con_ruido')

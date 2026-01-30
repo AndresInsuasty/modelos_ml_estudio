@@ -104,6 +104,7 @@ for idx, feature in enumerate(iris.feature_names):
     axes[idx].grid(True, alpha=0.3, axis='y')
 
 plt.tight_layout()
+plt.savefig('imgs/03_clasificacion_iris_1_histogramas_features.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -140,6 +141,7 @@ axes[1].legend()
 axes[1].grid(True, alpha=0.3)
 
 plt.tight_layout()
+plt.savefig('imgs/03_clasificacion_iris_2_scatter_sepalos_petalos.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -159,6 +161,7 @@ sns.heatmap(correlation_matrix, annot=True, fmt='.2f', cmap='coolwarm',
             center=0, square=True, linewidths=1, cbar_kws={"shrink": 0.8}, ax=ax)
 ax.set_title('Matriz de Correlación - Dataset Iris', fontsize=14, fontweight='bold')
 plt.tight_layout()
+plt.savefig('imgs/03_clasificacion_iris_3_matriz_correlacion.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -344,6 +347,7 @@ axes[1].legend()
 axes[1].grid(True, alpha=0.3, axis='y')
 
 plt.tight_layout()
+plt.savefig('imgs/03_clasificacion_iris_4_comparacion_matrices_metricas.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================

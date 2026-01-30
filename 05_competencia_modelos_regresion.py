@@ -119,6 +119,8 @@ axes[1].set_title('Box Plot del Precio de Viviendas', fontsize=13, fontweight='b
 axes[1].grid(True, alpha=0.3, axis='y')
 
 plt.tight_layout()
+plt.savefig('imgs/05_regresion_comp_2_histogramas_features.jpg', format='jpg', bbox_inches='tight', dpi=100)
+plt.savefig('imgs/05_regresion_comp_1_distribucion_target.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -165,6 +167,7 @@ for idx, (feature, color) in enumerate(zip(caracteristicas_principales, colores)
     axes[idx].grid(True, alpha=0.3)
 
 plt.tight_layout()
+plt.savefig('imgs/05_regresion_comp_3_scatter_features_vs_target.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -189,6 +192,7 @@ sns.heatmap(correlation_matrix, annot=True, fmt='.2f', cmap='coolwarm',
             center=0, square=True, linewidths=1, cbar_kws={"shrink": 0.8}, ax=ax)
 ax.set_title('Matriz de Correlación - California Housing', fontsize=14, fontweight='bold')
 plt.tight_layout()
+plt.savefig('imgs/05_regresion_comp_4_matriz_correlacion.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -214,6 +218,7 @@ ax.set_title('Distribución Geográfica de Precios de Viviendas en California',
 plt.colorbar(scatter, label='Valor Medio de Vivienda ($100k)', ax=ax)
 ax.grid(True, alpha=0.3)
 plt.tight_layout()
+plt.savefig('imgs/05_regresion_comp_5_mapa_geografico.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -373,6 +378,7 @@ for i, v in enumerate(df_results['RMSE']):
     axes[1].text(v + 0.01, i, f'{v:.3f}', ha='left', va='center', fontweight='bold')
 
 plt.tight_layout()
+plt.savefig('imgs/05_regresion_comp_6_comparacion_metricas.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -406,6 +412,7 @@ ax.axvline(x=0.8, color='green', linestyle='--', alpha=0.5, label='R² > 0.8 (ex
 ax.legend()
 
 plt.tight_layout()
+plt.savefig('imgs/05_regresion_comp_7_scatter_r2_vs_rmse.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -490,6 +497,7 @@ axes[1, 1].set_title('Q-Q Plot (Normalidad de Residuos)', fontsize=12, fontweigh
 axes[1, 1].grid(True, alpha=0.3)
 
 plt.tight_layout()
+plt.savefig('imgs/05_regresion_comp_8_analisis_residuos.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -521,6 +529,7 @@ if hasattr(best_model, 'feature_importances_'):
                 fontsize=13, fontweight='bold')
     ax.grid(True, alpha=0.3, axis='x')
     plt.tight_layout()
+    plt.savefig('imgs/05_regresion_comp_9_feature_importance.jpg', format='jpg', bbox_inches='tight', dpi=100)
     plt.show()
     
 elif hasattr(best_model, 'coef_'):
@@ -548,6 +557,7 @@ elif hasattr(best_model, 'coef_'):
                 fontsize=13, fontweight='bold')
     ax.grid(True, alpha=0.3, axis='x')
     plt.tight_layout()
+    plt.savefig('imgs/05_regresion_comp_9_feature_importance.jpg', format='jpg', bbox_inches='tight', dpi=100)
     plt.show()
 else:
     print(f"\nEl modelo {best_model_name} no proporciona importancia de características directamente")

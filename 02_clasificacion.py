@@ -78,6 +78,7 @@ axes[1].legend()
 axes[1].grid(True, alpha=0.3, axis='y')
 
 plt.tight_layout()
+plt.savefig('imgs/02_clasificacion_1_datos_histogramas.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -168,6 +169,7 @@ ax.set_xlabel('Predicción', fontsize=12, fontweight='bold')
 ax.set_ylabel('Real', fontsize=12, fontweight='bold')
 ax.set_title('Matriz de Confusión', fontsize=14, fontweight='bold')
 plt.tight_layout()
+plt.savefig('imgs/02_clasificacion_2_matriz_confusion.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -208,6 +210,7 @@ ax.set_title('Curva ROC (Receiver Operating Characteristic)', fontsize=14, fontw
 ax.legend(fontsize=11)
 ax.grid(True, alpha=0.3)
 plt.tight_layout()
+plt.savefig('imgs/02_clasificacion_3_curva_roc.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -256,6 +259,7 @@ ax.set_xlim(xx.min(), xx.max())
 ax.set_ylim(yy.min(), yy.max())
 ax.grid(True, alpha=0.3)
 plt.tight_layout()
+plt.savefig('imgs/02_clasificacion_4_frontera_decision.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
@@ -274,6 +278,7 @@ ax.set_title('Distribución de Probabilidades Predichas', fontsize=14, fontweigh
 ax.legend(fontsize=11)
 ax.grid(True, alpha=0.3, axis='y')
 plt.tight_layout()
+plt.savefig('imgs/02_clasificacion_5_distribucion_probabilidades.jpg', format='jpg', bbox_inches='tight', dpi=100)
 plt.show()
 
 # ============================================================
